@@ -1,0 +1,23 @@
+.FiltersBox {
+ border: 1px solid black;
+ width: 250px;
+ box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+ height: 400px;
+ padding: 40px;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-evenly;  
+ gap:20px; 
+}
+.FiltersBox > div {
+ 
+ display: flex;
+ flex-direction: column;
+ justify-content: space-evenly;  
+ gap:10px 
+}
+
+.FiltersBox input {
+ margin-left: 10px;
+
+}

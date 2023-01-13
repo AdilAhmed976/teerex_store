@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import style from "./Navbar.module.css"
 import { FiShoppingCart } from "react-icons/fi";
 import { Link } from 'react-router-dom';
@@ -6,7 +6,7 @@ import { AuthContext } from '../../context/AuthContext';
 
 export const Navbar = () => {
 
-  const {cartItems} = useContext(AuthContext)
+  const {cartItems,cartAdd,} = useContext(AuthContext)
 
   return (
     <div className={style.MainNavbar}>
@@ -25,8 +25,7 @@ export const Navbar = () => {
 
         <Link to={"/cart"} >
           <button className={style.CartButton} > 
-            <FiShoppingCart fontSize={"20px"} />
-             {cartItems}
+            <FiShoppingCart fontSize={"20px"} /> <sup>{cartItems}</sup> 
           </button>
         </Link>
       </div>

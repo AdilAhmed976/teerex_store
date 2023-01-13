@@ -1,0 +1,18 @@
+.ProductCard {
+    background-color: lightcyan;
+    padding: 10px;
+    
+}
+.ProductCard>div:nth-child(3) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    
+}
+
+.ProductCard img {
+  width: 100%;
+  object-fit: contain;
+  height: 200px;
+}

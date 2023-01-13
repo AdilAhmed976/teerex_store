@@ -1,0 +1,59 @@
+.SearchBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap:10px
+}
+.SearchBar input {
+    width: 220px;
+    height: 30px;
+    border: none;
+    border-bottom: 1px solid black;
+}
+.SearchBar input:focus {
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+}
+
+.SearchBarButton {
+    border-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px 20px 10px 20px;
+    border-radius: 10px;
+}
+.SearchBarButton:hover {
+    border-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px 20px 10px 20px;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+}
+.FilterButton {
+    border-color: transparent;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px 20px 10px 20px;
+    border-radius: 10px;
+}
+.FilterButton:hover {
+    border-color: transparent;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px 20px 10px 20px;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+}
