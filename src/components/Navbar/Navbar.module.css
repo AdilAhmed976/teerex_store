@@ -1,0 +1,35 @@
+.MainNavbar {
+    background-color: lightgray;
+    border:"1px solid black";
+    padding: 10px 20px 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.MainNavbar>div:nth-child(2) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:20px;
+}
+
+.ProductButton {
+    background-color: transparent;
+    padding: 6px;
+    border:none;
+    cursor: pointer;
+}
+
+.CartButton {
+    background-color: gray;
+    padding: 6px;
+    border:none;
+    cursor: pointer;
+    padding: 10px 20px 10px 20px;
+    border-radius: 50px;
+}
+
+/* .NavbarBox {
+
+} */
