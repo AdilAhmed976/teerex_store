@@ -1,0 +1,31 @@
+.Cards {
+    border: 1px solid lightgray;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 10px;
+}
+
+.CardsImg {
+    width: 60px;
+}
+.Cards img {
+    width: 100%;
+    object-fit: contain;
+}
+.Button {
+    padding: 5px 20px 5px 20px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-right: 16px;
+}
+.DeleteButton {
+    padding: 5px 20px 5px 20px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+}

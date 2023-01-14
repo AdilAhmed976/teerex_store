@@ -1,36 +1,22 @@
 import React, { useState } from 'react'
 import style from "./Filters.module.css"
 
-export const Filters = () => {
-    const [colorCategories,setcolorCategories] = useState([])
-    const [color,setColor] = useState([])
-    const [gender,setGender] = useState('')
-    const [price,setPrice] = useState([])
-    const [type,setType] = useState([])
-
-    const handleColour = (e) => {
-        let val = e.target.value
-        if (e.target.checked==true) {
-            colorCategories.push(val)
-            console.log('colorCategories INNNN',colorCategories)
-        }
-        else {
-            let ind = colorCategories.indexOf(val)
-            colorCategories.splice(ind,1)
-        } 
-    }
-
-    const handleGender = (e) => {
-        let val = e.target.value
-        if (e.target.checked==true) {
-            colorCategories.push(val)
-            console.log('colorCategories INNNN',colorCategories)
-        }
-        else {
-            let ind = colorCategories.indexOf(val)
-            colorCategories.splice(ind,1)
-        } 
-    }
+export const Filters = ({
+    handleGender,
+    handleColour,
+    colorCategories,
+    setcolorCategories,
+    color,
+    setColor,
+    gender,
+    setGender,
+    price,
+    setPrice,
+    type,
+    setType,
+    handlePrice
+}) => {
+   
     
 
   return (
@@ -60,16 +46,18 @@ export const Filters = () => {
             </label>
         </div>
 
-        <div>
+        <div onClick={() => {
+            
+        }}>
             <text>Price</text>
             <label> 0 - Rs250
-                <input type="checkbox" value="Red"/>
+                <input type="checkbox" value="Red"  onChange={(e)=>handlePrice(e, '0-250')} />
             </label>
             <label> 251 - Rs450
-                <input type="checkbox" value="Red"/>
+                <input type="checkbox" value="Red" onChange={(e)=>handlePrice(e, '251-450')}/>
             </label>
             <label> 450
-                <input type="checkbox" value="Red"/>
+                <input type="checkbox" value="Red" onChange={e => handlePrice(e, '450')}/>
             </label>
         </div>
 

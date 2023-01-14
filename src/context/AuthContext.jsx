@@ -4,17 +4,31 @@ import { createContext, useState } from "react";
 export const AuthContext = createContext();
 
 function AuthContextProvider ({children}) {
-    const [cartItems,setCartItems] = useState(0);
+    const [cartQuantity,setCartQuantity] = useState(0);
+    const [cartData,setCartData] = useState([]);
+    
 
     function cartAdd () {
-        setCartItems(prev => prev+1 )
+        setCartQuantity(prev => prev+1 )
     }
     function cartdelete () {
-        setCartItems(prev => prev-1 )
+        if (cartQuantity===0) {
+            return
+        }
+        else {
+            setCartQuantity(prev => prev-1 )
+        }
     }
  
     return (
-        <AuthContext.Provider value={{cartItems,cartAdd,cartdelete}} >
+        <AuthContext.Provider 
+        value={{
+            cartData,setCartData,
+            cartQuantity,setCartQuantity,
+            cartAdd,
+            cartdelete
+        }} 
+        >
             {children}
         </AuthContext.Provider>
     )

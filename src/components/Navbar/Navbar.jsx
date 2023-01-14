@@ -6,7 +6,7 @@ import { AuthContext } from '../../context/AuthContext';
 
 export const Navbar = () => {
 
-  const {cartItems,cartAdd,} = useContext(AuthContext)
+  const {cartQuantity,cartAdd,cartdelete} = useContext(AuthContext)
 
   return (
     <div className={style.MainNavbar}>
@@ -25,7 +25,7 @@ export const Navbar = () => {
 
         <Link to={"/cart"} >
           <button className={style.CartButton} > 
-            <FiShoppingCart fontSize={"20px"} /> <sup>{cartItems}</sup> 
+            <FiShoppingCart fontSize={"20px"} /> <sup >{cartQuantity}</sup> 
           </button>
         </Link>
       </div>
