@@ -21,11 +21,12 @@ export const ProductListingPage = () => {
     const [price,setPrice] = useState([])
     const [type,setType] = useState([])
     
-    // hooks , state for serch
+    // console.log("colorCategories" ,colorCategories)
+    //  state for serch
     const [search,setSearch] = useState([])
 
-    // handlePrice,handleType
-    // functions for products 
+  
+    // functions for getting products 
     const getProductsData = async () => {
       try {
           const res  = await fetch("https://geektrust.s3.ap-southeast-1.amazonaws.com/coding-problems/shopping-cart/catalogue.json")
@@ -45,7 +46,7 @@ export const ProductListingPage = () => {
             return product
            })
 
-            console.table(data)
+          console.table(data)
           setProductData(productsData)
           setFilteredData(productsData)
       } catch (error) {
@@ -55,80 +56,56 @@ export const ProductListingPage = () => {
   
   // functions for filter
     const handleColour = (e) => {
+
+      setcolorCategories(prevColorCategories => {
         let val = e.target.value
-        if (e.target.checked===true) {
-          let ans  = [...colorCategories,val]
-          setcolorCategories(ans)
+        if (e.target.checked == true) {
+          let ans  = [...prevColorCategories,val]
+          return ans
           }
           else {
-            let ind = colorCategories.indexOf(val)
-            let ans = colorCategories.splice(ind,1)
-            setcolorCategories(colorCategories)
-            
-        } 
-        
+            let ind = prevColorCategories.indexOf(val)
+            prevColorCategories.splice(ind,1)
+            return prevColorCategories
+          }
+      })
+      
     }
     const handleGender = (e) => {
-        let val = e.target.value
-        if (e.target.checked==true) {
-           colorCategories.push(val)
-        }
-        else {
-            let ind = colorCategories.indexOf(val)
-            colorCategories.splice(ind,1)
-        } 
+    
+       
     }
-    const handlePrice = (e, price) => {
-      const { checked } = e.target;
-      let priceRange = {
-        '0-250': (value) => value <= 250,
-        '251-450': (value) => value > 250 && value <= 450,
-        '450': (value) => value > 450  
-      }
 
-      setPrice(prevPrice => {
-        if(checked) {
-          return [...prevPrice, price]
-        }
-        
-        return prevPrice.filter(p => p !== price)
-      })
+    const handlePrice = (e, price) => {
+      
     }
     const handleType = (e) => {
        
     }
 
-    // functions for search
+    // function to search data for all the categories 
     const handleSearch = () => {
-      
-      // productsData
+      let data = productsData.filter((element) => {
+        return element.color.includes(search) || element.name.includes(search) || element.gender.includes(search)
+      })
+      setFilteredData([...data])
     }
 
-    // function to filter data 
+    // function to filter data for all the categories & invoking it on filter parent
     const filterData = () => {
       let newColorData;
-console.log(colorCategories)
-      // if(colorCategories?.length) {
-        newColorData = productsData.filter((element) => {
-          return colorCategories.includes(element.color)
-        })
+  
+      newColorData = productsData.filter((element) => {
+        return colorCategories.includes(element.color) || colorCategories.includes(element.type) || colorCategories.includes(element.gender)
+      })
+      console.log("colorCategories",newColorData)
+      if (colorCategories.length==0) {
+        
+        setFilteredData([...productsData])
+      }
+      else {
         setFilteredData([...newColorData])
-      // }
-      // else {
-
-      // }
-
-      // if(gender.length?.length) {
-      //   newColorData = productsData.filter((element) => {
-      //     return element.gender == gender
-      //   })
-      // }
-
-      // if(price.length?.length) {
-      //   newColorData = productsData.filter((element) => {
-      //     return element.price == price
-      //   })
-      // }
+      }
 
     }
 
@@ -138,18 +115,18 @@ console.log(colorCategories)
 
     useEffect(() => {
       filterData()
-    }, [colorCategories,gender,price,type])
-    console.log("colorCategories",colorCategories)
-    
-    
+    }, [
+      colorCategories,color
+    ])
+  
   
   return (
     <div>
-      <SearchBar search={search} setSearch={setSearch} />
+      <SearchBar search={search} setSearch={setSearch} handleSearch={handleSearch} />
       <div style={{display:"flex" , padding:"0px 30px 0px 30px" }}  > 
           
           <Filters
-            handleGender={handleGender} // passed all hooks,state & functions as props in component
+            handleGender={handleGender} // passed all state & functions as props in component
             handleColour={handleColour}
             colorCategories={colorCategories}
             setcolorCategories={setcolorCategories}
@@ -164,7 +141,7 @@ console.log(colorCategories)
             handlePrice={handlePrice}
           />
           <Products 
-            productsData={productsData} // passed all hooks ,state & functions as props in component
+            productsData={productsData} // passed all state & functions as props in component
             setProductData={setProductData}
             filteredData={filteredData}
             setFilteredData={setFilteredData}

@@ -66,6 +66,10 @@ export const ProductCard = ({element,index}) => {
             <img src={element.imageURL} alt="" srcset={element.name} />            
         </div>
         <text>{element.name}</text>
+        <br/>
+        <text>{`category : ${element.gender}`}</text>
+        <br/>
+        <text>{`color : ${element.color}`}</text>
         <div>
             <text>{`${element.price} ${element.currency}`} </text>
             <div>

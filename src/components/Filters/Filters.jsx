@@ -20,10 +20,15 @@ export const Filters = ({
     
 
   return (
-    <div className={style.FiltersBox} >
+    <div 
+        className={style.FiltersBox} 
+        onClick={(e) =>handleColour(e)} 
+    >
   
         {/* event delegation applied use on parent  */}
-        <div onClick={(e) =>handleColour(e)} >
+        <div 
+        // onClick={(e) =>handleColour(e)} 
+        >
             <text>Color ; {color}</text>
             <label> Red
                 <input type="checkbox" onChange={(e) => setColor(e.target.value)} value="Red"/>
@@ -36,18 +41,33 @@ export const Filters = ({
             </label>
         </div>
 
-        <div onClick={(e) =>handleGender(e)} >
+        <div 
+        // onClick={(e) =>handleGender(e)} 
+        >
             <text>Gender</text>
-            <label> Male
-                <input onChange={(e) => setGender(e.target.value)} type="checkbox" value="Male"/>
+            <label> Men
+                <input 
+                onChange={(e) => {
+                    setGender(e.target.value)
+                }} 
+                type="checkbox" 
+                value="Men"
+            />
             </label>
-            <label> Female
-                <input onChange={(e) => setGender(e.target.value)} type="checkbox" value="Female"/>
+            <label> Women
+                <input 
+                    onChange={(e) => {
+                        setGender(e.target.value)
+                        console.log(e.checked)
+                    }} 
+                    type="checkbox" 
+                    value="Women"
+                />
             </label>
         </div>
 
         <div onClick={() => {
-            
+
         }}>
             <text>Price</text>
             <label> 0 - Rs250

@@ -1,7 +1,7 @@
 .MainCart {
     display: flex;
     flex-direction: column;
-    width: 30%;
+    width: 40%;
     margin: auto;
     gap: 20px;
 }
@@ -16,4 +16,19 @@
     padding: 20px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     border-radius: 10px;
+}
+@media only screen and (min-width:740px) and (max-width:1200px) {
+    .MainCart {
+        width: 50%;
+    }
+}
+@media only screen and (min-width:481px) and (max-width:740px) {
+    .MainCart {
+        width: 80%;
+    }
+}
+@media only screen and (min-width:100px) and (max-width:480px) {
+    .MainCart {
+        width: 90%;
+    }
 }

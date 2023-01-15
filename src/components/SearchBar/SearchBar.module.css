@@ -57,3 +57,16 @@
     background-color: black;
     color: white;
 }
+@media only screen and (min-width:740px) and (max-width:1200px) {
+  
+}
+@media only screen and (min-width:481px) and (max-width:740px) {
+    .FilterButton {
+        display: block;
+    }
+}
+@media only screen and (min-width:100px) and (max-width:480px) {
+    .FilterButton {
+        display: block;
+    }
+}

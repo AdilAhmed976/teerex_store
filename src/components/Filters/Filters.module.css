@@ -1,5 +1,5 @@
 .FiltersBox {
- border: 1px solid black;
+ border: 1px solid lightgray;
  width: 250px;
  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
  height: 400px;
@@ -8,6 +8,7 @@
  flex-direction: column;
  justify-content: space-evenly;  
  gap:20px; 
+ border-radius: 10px;
 }
 .FiltersBox > div {
  
@@ -20,4 +21,20 @@
 .FiltersBox input {
  margin-left: 10px;
 
+}
+@media only screen and (min-width:740px) and (max-width:1200px) {
+    .FiltersBox {
+        display: flex;
+        width: 180px;
+    }
+}
+@media only screen and (min-width:481px) and (max-width:740px) {
+    .FiltersBox {
+        display: none;
+    }
+}
+@media only screen and (min-width:100px) and (max-width:480px) {
+    .FiltersBox {
+        display: none;
+    }
 }

@@ -2,6 +2,7 @@
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     padding: 10px;
     border-radius: 10px;
+    border: 1px solid lightgray;
 }
 
 .ProductCard>div:nth-child(3) {
@@ -32,4 +33,14 @@
   border-radius: 10px;
   padding: 10px;
   cursor: pointer;
+}
+
+@media only screen and (min-width:740px) and (max-width:1200px) {
+  
+}
+@media only screen and (min-width:481px) and (max-width:740px) {
+  
+}
+@media only screen and (min-width:100px) and (max-width:480px) {
+  
 }
